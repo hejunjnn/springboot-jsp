@@ -1,0 +1,29 @@
+server:
+  context-path: /springbootjsp
+  jsp-servlet:
+    init-parameters:
+        development: true
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521:xe
+    username: hr
+    password: hr
+    type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+  profiles:
+    active: product
+mybatis:
+  type-aliases-package: com.baizhi.entity
+  mapper-locations: classpath:com/baizhi/mapper/*MapperImpl.xml
